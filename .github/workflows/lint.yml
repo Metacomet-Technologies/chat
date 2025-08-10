@@ -29,8 +29,17 @@ jobs:
           composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
           npm install
 
-      - name: Run Pint
-        run: vendor/bin/pint
+      - name: Run IDE Helper
+        run: php artisan ide-helper:generate
+
+      - name: Run IDE Helper Models
+        run: php artisan ide-helper:models -RW
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse --memory-limit=1G
+
+      - name: Run Duster
+        run: vendor/bin/duster fix
 
       - name: Format Frontend
         run: npm run format
@@ -38,8 +47,8 @@ jobs:
       - name: Lint Frontend
         run: npm run lint
 
-      # - name: Commit Changes
-      #   uses: stefanzweifel/git-auto-commit-action@v5
-      #   with:
-      #     commit_message: fix code style
-      #     commit_options: '--no-verify'
+      - name: Commit Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: fix code style
+          commit_options: '--no-verify'
