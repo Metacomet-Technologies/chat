@@ -1,0 +1,13 @@
+aliases: {}
+integrations:
+  forge:
+    chat.metacomet.tech:
+      server-id: 847680
+      site-id: 2812408
+name: chat
+php: '8.4'
+secured: true
+services:
+  redis:
+    port: ${REDIS_PORT}
+    version: 7.0.0
