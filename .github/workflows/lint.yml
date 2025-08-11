@@ -29,12 +29,6 @@ jobs:
           composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
           npm install
 
-      - name: Run IDE Helper
-        run: php artisan ide-helper:generate
-
-      - name: Run IDE Helper Models
-        run: php artisan ide-helper:models -RW
-
       - name: Run PHPStan
         run: vendor/bin/phpstan analyse --memory-limit=1G
 
