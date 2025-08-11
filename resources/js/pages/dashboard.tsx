@@ -2,6 +2,8 @@ import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
+// import { useEcho } from '@laravel/echo-react';
+// import axios from 'axios';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -11,6 +13,29 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Dashboard() {
+    // const { auth } = usePage<SharedData>().props;
+
+    // useEcho(
+    //     `App.Models.User.${auth.user.id}`,
+    //     'Event',
+    //     (event) => {
+    //         console.log(event);
+    //     },
+    //     [auth.user.id],
+    // );
+
+    // useEcho('shared', 'Event', (event) => {
+    //     console.log(event);
+    // });
+
+    // axios
+    //     .get('/api/user')
+    //     .then((response) => {
+    //         console.log('User data:', response.data);
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error fetching user data:', error);
+    //     });
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Dashboard" />
