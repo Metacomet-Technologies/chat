@@ -17,6 +17,7 @@
         "laravel/reverb": "^1.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
+        "metacomet-technologies/env-sync": "^0.0.3",
         "spatie/laravel-data": "^4.17",
         "tightenco/ziggy": "^2.4"
     },

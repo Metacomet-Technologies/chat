@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0714a5bba814cad430424f5d75631b25",
+    "content-hash": "a8e9533cedaf2aabb4c0e9677052715a",
     "packages": [
         {
             "name": "amphp/amp",
@@ -3511,6 +3511,85 @@
                 }
             ],
             "time": "2024-12-08T08:18:47+00:00"
+        },
+        {
+            "name": "metacomet-technologies/env-sync",
+            "version": "v0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Metacomet-Technologies/env-sync.git",
+                "reference": "d1755a2124bfd8e182ebd5d2ea8adcc9f7012095"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Metacomet-Technologies/env-sync/zipball/d1755a2124bfd8e182ebd5d2ea8adcc9f7012095",
+                "reference": "d1755a2124bfd8e182ebd5d2ea8adcc9f7012095",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^10.0||^11.0||^12.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.16",
+                "symfony/process": "^6.0||^7.0"
+            },
+            "require-dev": {
+                "larastan/larastan": "^2.9||^3.0",
+                "laravel/pint": "^1.14",
+                "nunomaduro/collision": "^8.1.1||^7.10.0",
+                "orchestra/testbench": "^10.0.0||^9.0.0||^8.22.0",
+                "pestphp/pest": "^2.0||^3.0",
+                "pestphp/pest-plugin-arch": "^2.5||^3.0",
+                "pestphp/pest-plugin-laravel": "^2.0||^3.0",
+                "phpstan/extension-installer": "^1.3",
+                "phpstan/phpstan-deprecation-rules": "^1.1||^2.0",
+                "phpstan/phpstan-phpunit": "^1.3||^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "EnvSync": "Metacomet\\EnvSync\\Facades\\EnvSync"
+                    },
+                    "providers": [
+                        "Metacomet\\EnvSync\\EnvSyncServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Metacomet\\EnvSync\\": "src/",
+                    "Metacomet\\EnvSync\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Devon Garbalosa",
+                    "email": "devon@metacomet.tech",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This package provides Artisan commands for syncing your .env files to your preferred secrets manager for ease of storage and use.",
+            "homepage": "https://github.com/metacomet-technologies/env-sync",
+            "keywords": [
+                "Metacomet Technologies",
+                "env-sync",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/Metacomet-Technologies/env-sync/issues",
+                "source": "https://github.com/Metacomet-Technologies/env-sync/tree/v0.0.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Metacomet Technologies",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-08-12T16:58:01+00:00"
         },
         {
             "name": "monolog/monolog",
