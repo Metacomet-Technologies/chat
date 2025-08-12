@@ -22,6 +22,7 @@ This is a Laravel 12+ application with Inertia.js v2, React 19+, TypeScript, and
 - **Backend**: Laravel 12+ with PHP 8.3+
 - **Frontend**: Inertia.js v2 + React 19+ + TypeScript
 - **Styling**: Tailwind CSS v4+ (light/dark mode + system detection)
+- **Real-time**: Laravel Reverb + Laravel Echo React hooks
 - **API Documentation**: OpenAPI compliance via dedoc/scramble
 - **Authentication**: Laravel Sanctum SPA
 - **Feature Flags**: Laravel Pennant
@@ -261,6 +262,49 @@ React components follow these patterns:
 - Shared props defined in HandleInertiaRequests middleware
 - Appearance state (theme) handled via cookies and middleware
 - Sidebar state persisted in cookies
+
+### Laravel Echo React Hooks
+
+The application uses @laravel/echo-react (v2.2.0) for WebSocket integration. Available hooks:
+
+#### `useEcho<TPayload>(channelName, event, callback, dependencies, visibility)`
+- Main hook for listening to channels (private by default)
+- Parameters:
+  - `channelName`: string - The channel to connect to
+  - `event`: string | string[] - Event(s) to listen for
+  - `callback`: (payload: TPayload) => void - Callback when event received
+  - `dependencies`: any[] - React dependencies for the callback
+  - `visibility`: 'private' | 'public' | 'presence' - Channel type (default: 'private')
+- Returns: `{ leaveChannel, leave, stopListening, listen, channel }`
+
+#### `useEchoPublic<TPayload>(channelName, event, callback, dependencies)`
+- For public channels (no authentication required)
+
+#### `useEchoPresence<TPayload>(channelName, event, callback, dependencies)`
+- For presence channels (who's online functionality)
+
+#### `useEchoModel<TPayload, TModel>(model, identifier, event, callback, dependencies)`
+- For Laravel model broadcasting events
+- Example: `useEchoModel('App.Models.User', userId, 'UserUpdated', callback)`
+
+#### `useEchoNotification<TPayload>(channelName, callback, event, dependencies)`
+- For Laravel notification events
+
+Example usage in components:
+```tsx
+// Listen to private channel for messages
+useEcho<{ message: Message }>(
+    `room.${roomId}`,
+    '.message.sent',
+    (e) => {
+        setMessages(prev => [...prev, e.message]);
+    },
+    [roomId], // Dependencies
+    'private' // Channel type
+);
+```
+
+Note: The Echo instance must be configured using `configureEcho()` in app.tsx before using any hooks.
 
 ### Build Configuration
 

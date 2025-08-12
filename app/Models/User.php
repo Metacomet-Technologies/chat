@@ -3,7 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Domains\Messages\Models\Message;
+use App\Domains\Messages\Models\Room;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -17,8 +21,12 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, Message> $messages
+ * @property-read int|null $messages_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, Room> $rooms
+ * @property-read int|null $rooms_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @property-read int|null $tokens_count
  *
@@ -51,6 +59,24 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    /**
+     * @return BelongsToMany<Room>
+     */
+    public function rooms(): BelongsToMany
+    {
+        return $this->belongsToMany(Room::class, 'room_user')
+            ->withPivot('joined_at', 'last_read_at')
+            ->withTimestamps();
+    }
+
+    /**
+     * @return HasMany<Message>
+     */
+    public function messages(): HasMany
+    {
+        return $this->hasMany(Message::class);
+    }
 
     /**
      * Get the attributes that should be cast.
