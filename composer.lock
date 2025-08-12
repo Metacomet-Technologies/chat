@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8e9533cedaf2aabb4c0e9677052715a",
+    "content-hash": "e7c626a7c3fc009a670cf104f15361eb",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1119,16 +1119,16 @@
         },
         {
             "name": "dedoc/scramble",
-            "version": "v0.12.28",
+            "version": "v0.12.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dedoc/scramble.git",
-                "reference": "f06a98d1fd6678544428df7077d73194e2d28de3"
+                "reference": "b1fecfa9f6dc0094cf716d609975b933c5d522f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dedoc/scramble/zipball/f06a98d1fd6678544428df7077d73194e2d28de3",
-                "reference": "f06a98d1fd6678544428df7077d73194e2d28de3",
+                "url": "https://api.github.com/repos/dedoc/scramble/zipball/b1fecfa9f6dc0094cf716d609975b933c5d522f0",
+                "reference": "b1fecfa9f6dc0094cf716d609975b933c5d522f0",
                 "shasum": ""
             },
             "require": {
@@ -1187,7 +1187,7 @@
             ],
             "support": {
                 "issues": "https://github.com/dedoc/scramble/issues",
-                "source": "https://github.com/dedoc/scramble/tree/v0.12.28"
+                "source": "https://github.com/dedoc/scramble/tree/v0.12.29"
             },
             "funding": [
                 {
@@ -1195,7 +1195,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-08-04T12:20:10+00:00"
+            "time": "2025-08-12T12:17:56+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -2339,16 +2339,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v12.22.1",
+            "version": "v12.23.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d33ee45184126f32f593d4b809a846ed88a1dc43"
+                "reference": "2a0e9331a0db904236143fe915c281ff4be274a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d33ee45184126f32f593d4b809a846ed88a1dc43",
-                "reference": "d33ee45184126f32f593d4b809a846ed88a1dc43",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2a0e9331a0db904236143fe915c281ff4be274a3",
+                "reference": "2a0e9331a0db904236143fe915c281ff4be274a3",
                 "shasum": ""
             },
             "require": {
@@ -2389,6 +2389,8 @@
                 "symfony/mailer": "^7.2.0",
                 "symfony/mime": "^7.2.0",
                 "symfony/polyfill-php83": "^1.31",
+                "symfony/polyfill-php84": "^1.31",
+                "symfony/polyfill-php85": "^1.31",
                 "symfony/process": "^7.2.0",
                 "symfony/routing": "^7.2.0",
                 "symfony/uid": "^7.2.0",
@@ -2550,7 +2552,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-08-08T13:58:03+00:00"
+            "time": "2025-08-12T17:35:05+00:00"
         },
         {
             "name": "laravel/pennant",
@@ -3514,20 +3516,21 @@
         },
         {
             "name": "metacomet-technologies/env-sync",
-            "version": "v0.0.3",
+            "version": "v0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Metacomet-Technologies/env-sync.git",
-                "reference": "d1755a2124bfd8e182ebd5d2ea8adcc9f7012095"
+                "reference": "0b3806c8616acaa1d27cf244d3def3f52c617f4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Metacomet-Technologies/env-sync/zipball/d1755a2124bfd8e182ebd5d2ea8adcc9f7012095",
-                "reference": "d1755a2124bfd8e182ebd5d2ea8adcc9f7012095",
+                "url": "https://api.github.com/repos/Metacomet-Technologies/env-sync/zipball/0b3806c8616acaa1d27cf244d3def3f52c617f4d",
+                "reference": "0b3806c8616acaa1d27cf244d3def3f52c617f4d",
                 "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "^10.0||^11.0||^12.0",
+                "laravel/prompts": "^0.3.6",
                 "php": "^8.1",
                 "spatie/laravel-package-tools": "^1.16",
                 "symfony/process": "^6.0||^7.0"
@@ -3581,7 +3584,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Metacomet-Technologies/env-sync/issues",
-                "source": "https://github.com/Metacomet-Technologies/env-sync/tree/v0.0.3"
+                "source": "https://github.com/Metacomet-Technologies/env-sync/tree/v0.0.4"
             },
             "funding": [
                 {
@@ -3589,7 +3592,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-08-12T16:58:01+00:00"
+            "time": "2025-08-12T19:16:32+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -7787,6 +7790,158 @@
                 }
             ],
             "time": "2024-09-09T11:45:10+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php84",
+            "version": "v1.32.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php84.git",
+                "reference": "000df7860439609837bbe28670b0be15783b7fbf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php84/zipball/000df7860439609837bbe28670b0be15783b7fbf",
+                "reference": "000df7860439609837bbe28670b0be15783b7fbf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php84\\": ""
+                },
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.4+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php84/tree/v1.32.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2025-02-20T12:04:08+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php85",
+            "version": "v1.32.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php85.git",
+                "reference": "6fedf31ce4e3648f4ff5ca58bfd53127d38f05fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/6fedf31ce4e3648f4ff5ca58bfd53127d38f05fd",
+                "reference": "6fedf31ce4e3648f4ff5ca58bfd53127d38f05fd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php85\\": ""
+                },
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.5+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php85/tree/v1.32.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2025-05-02T08:40:52+00:00"
         },
         {
             "name": "symfony/polyfill-uuid",
