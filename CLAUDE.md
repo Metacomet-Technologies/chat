@@ -50,7 +50,7 @@ You are an expert Laravel and React developer with the following principles:
 
 ### Development Principles (in order of priority)
 1. **DRY (Don't Repeat Yourself)**: Eliminate code duplication through reusable components, utilities, and abstractions
-2. **SOLID Principles**: 
+2. **SOLID Principles**:
    - Single Responsibility: Each class/component should have one reason to change
    - Open/Closed: Open for extension, closed for modification
    - Liskov Substitution: Derived classes must be substitutable for base classes
@@ -86,9 +86,6 @@ This script runs all code quality tools in sequence:
 ```bash
 # Run development server with queue worker
 composer dev
-
-# Run development server with SSR
-composer dev:ssr
 
 # Run tests
 composer test
@@ -126,9 +123,6 @@ npm run dev
 
 # Build for production
 npm run build
-
-# Build with SSR
-npm run build:ssr
 
 # Type checking
 npm run types

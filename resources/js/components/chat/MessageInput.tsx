@@ -29,7 +29,7 @@ export default function MessageInput({ onSendMessage, isMobile = false }: Messag
     };
 
     return (
-        <div className={`border-t border-gray-200 dark:border-gray-700 ${isMobile ? 'p-3' : 'p-4'}`}>
+        <div className={`border-t border-zinc-200 dark:border-zinc-700 ${isMobile ? 'p-3' : 'p-4'}`}>
             <div className="flex gap-2">
                 <Input
                     type="text"

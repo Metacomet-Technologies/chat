@@ -33,7 +33,7 @@ class MessageResponse extends Data
             content: $message->content,
             type: $message->type,
             metadata: $message->metadata,
-            user: Lazy::create(fn () => UserData::fromModel($message->user)),
+            user: Lazy::whenLoaded('user', $message, fn () => UserData::fromModel($message->user)),
             createdAt: $message->created_at,
             updatedAt: $message->updated_at,
         );

@@ -75,18 +75,18 @@ export default function ChatLayout({ initialRooms = [], selectedRoomId }: ChatLa
     // Mobile layout: Show either room list OR chat window
     if (isMobile) {
         return (
-            <div className="h-full bg-gray-50 dark:bg-gray-900">
+            <div className="h-full bg-zinc-50 dark:bg-zinc-900">
                 {selectedRoom ? (
                     <div className="flex h-full flex-col">
                         {/* Mobile chat header with back button */}
-                        <div className="flex items-center border-b border-gray-200 bg-white px-4 py-3 dark:border-gray-700 dark:bg-gray-800">
+                        <div className="flex items-center border-b border-zinc-200 bg-white px-4 py-3 dark:border-zinc-700 dark:bg-zinc-800">
                             <Button variant="ghost" size="icon" onClick={handleBackToRooms} className="mr-3">
                                 <ArrowLeft className="h-5 w-5" />
                             </Button>
                             <div className="flex-1">
-                                <h3 className="text-base font-semibold text-gray-900 dark:text-white">{selectedRoom.name}</h3>
+                                <h3 className="text-base font-semibold text-zinc-900 dark:text-white">{selectedRoom.name}</h3>
                                 {selectedRoom.users && (
-                                    <p className="text-xs text-gray-500 dark:text-gray-400">{selectedRoom.users.length} members</p>
+                                    <p className="text-xs text-zinc-500 dark:text-zinc-400">{selectedRoom.users.length} members</p>
                                 )}
                             </div>
                         </div>
@@ -104,8 +104,8 @@ export default function ChatLayout({ initialRooms = [], selectedRoomId }: ChatLa
 
     // Desktop layout: Side-by-side view
     return (
-        <div className="flex h-full bg-gray-50 dark:bg-gray-900">
-            <div className="hidden w-80 border-r border-gray-200 lg:block dark:border-gray-700">
+        <div className="flex h-full bg-zinc-50 dark:bg-zinc-900">
+            <div className="hidden w-80 border-r border-zinc-200 lg:block dark:border-zinc-700">
                 <RoomList rooms={rooms} selectedRoom={selectedRoom} onRoomSelect={handleRoomSelect} onRoomCreate={handleRoomCreate} />
             </div>
             <div className="flex-1">
@@ -114,7 +114,7 @@ export default function ChatLayout({ initialRooms = [], selectedRoomId }: ChatLa
                 ) : (
                     <div className="flex h-full items-center justify-center p-4 text-center">
                         <div>
-                            <div className="text-lg text-gray-500 dark:text-gray-400">Select a room to start chatting</div>
+                            <div className="text-lg text-zinc-500 dark:text-zinc-400">Select a room to start chatting</div>
                             <div className="mt-2 lg:hidden">
                                 <Button onClick={handleBackToRooms} variant="outline">
                                     View Rooms

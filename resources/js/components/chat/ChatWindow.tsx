@@ -23,13 +23,20 @@ export default function ChatWindow({ room, isMobile = false }: ChatWindowProps) 
         `room.${room.id}`,
         '.message.sent',
         (e) => {
-            setMessages((prev) => [...prev, e.message]);
+            setMessages((prev) => {
+                // Check if message already exists to avoid duplicates
+                const exists = prev.some((msg) => msg.id === e.message.id);
+                if (exists) return prev;
+                return [...prev, e.message];
+            });
         },
         [room.id], // Dependencies for the callback
         'private', // Channel visibility
     );
 
     useEffect(() => {
+        // Clear messages when switching rooms
+        setMessages([]);
         fetchMessages();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [room.id]);
@@ -56,8 +63,8 @@ export default function ChatWindow({ room, isMobile = false }: ChatWindowProps) 
 
     const sendMessage = async (content: string) => {
         try {
-            const response = await api.post(route('api.rooms.messages.store', { room: room.id }), { content });
-            setMessages((prev) => [...prev, response.data]);
+            await api.post(route('api.rooms.messages.store', { room: room.id }), { content });
+            // Message will be added via WebSocket broadcast, no need to add here
         } catch (error) {
             console.error('Failed to send message:', error);
         }
@@ -67,16 +74,16 @@ export default function ChatWindow({ room, isMobile = false }: ChatWindowProps) 
         <div className="flex h-full flex-col">
             {/* Desktop header - hide on mobile since we have a custom header */}
             {!isMobile && (
-                <div className="border-b border-gray-200 p-4 dark:border-gray-700">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{room.name}</h3>
-                    {room.users && <p className="text-sm text-gray-500 dark:text-gray-400">{room.users.length} members</p>}
+                <div className="border-b border-zinc-200 p-4 dark:border-zinc-700">
+                    <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">{room.name}</h3>
+                    {room.users && <p className="text-sm text-zinc-500 dark:text-zinc-400">{room.users.length} members</p>}
                 </div>
             )}
 
             <div className={`flex-1 overflow-y-auto ${isMobile ? 'p-3' : 'p-4'}`}>
                 {isLoading ? (
                     <div className="flex h-full items-center justify-center">
-                        <div className="text-gray-500 dark:text-gray-400">Loading messages...</div>
+                        <div className="text-zinc-500 dark:text-zinc-400">Loading messages...</div>
                     </div>
                 ) : (
                     <>

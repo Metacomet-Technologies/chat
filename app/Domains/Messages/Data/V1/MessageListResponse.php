@@ -29,7 +29,7 @@ class MessageListResponse extends Data
     public static function fromPaginator(LengthAwarePaginator $paginator): self
     {
         return new self(
-            messages: MessageResponse::collect($paginator->items(), DataCollection::class),
+            messages: MessageResponse::collect($paginator->items(), DataCollection::class)->include('user'),
             total: $paginator->total(),
             perPage: $paginator->perPage(),
             currentPage: $paginator->currentPage(),

@@ -82,11 +82,6 @@ php artisan serve  # Backend
 npm run dev       # Frontend with Vite
 ```
 
-### Run with Server-Side Rendering
-```bash
-composer dev:ssr
-```
-
 ## Testing
 
 ### Run all tests

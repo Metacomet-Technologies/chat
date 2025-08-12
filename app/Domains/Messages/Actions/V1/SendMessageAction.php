@@ -39,9 +39,12 @@ class SendMessageAction
                 'last_read_at' => now(),
             ]);
 
+            // Load the user relationship before broadcasting and returning
+            $message->load('user');
+
             broadcast(new MessageSent($message));
 
-            return MessageResponse::fromModel($message);
+            return MessageResponse::fromModel($message)->include('user');
         });
     }
 }

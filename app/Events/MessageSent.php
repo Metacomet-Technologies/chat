@@ -20,7 +20,9 @@ class MessageSent implements ShouldBroadcast
 
     public function __construct(Message $message)
     {
-        $this->message = MessageResponse::fromModel($message);
+        // Ensure user is loaded before converting to response
+        $message->loadMissing('user');
+        $this->message = MessageResponse::fromModel($message)->include('user');
     }
 
     /**
