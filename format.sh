@@ -168,12 +168,17 @@ if npm run | grep -q "types"; then
     run_step "TypeScript checking" "npm run types" true
 fi
 
+# Build production assets
+echo ""
+print_status "$BLUE" "🏗️ Building production assets..."
+run_step "Building assets" "npm run build"
+
 # Summary
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 if [[ ${#ERRORS[@]} -eq 0 ]] && [[ ${#WARNINGS[@]} -eq 0 ]]; then
-    print_status "$GREEN" "✅ All formatting and linting completed successfully!"
+    print_status "$GREEN" "✅ All formatting, linting, and build completed successfully!"
     
     # Clean up ALL backup directories if everything succeeded
     if ls .format-backup-* 1> /dev/null 2>&1; then
