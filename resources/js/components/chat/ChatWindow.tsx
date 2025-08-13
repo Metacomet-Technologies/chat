@@ -52,7 +52,7 @@ export default function ChatWindow({ room, isMobile = false }: ChatWindowProps) 
     const fetchMessages = async () => {
         setIsLoading(true);
         try {
-            const response = await api.get(route('api.rooms.messages.index', { room: room.id }));
+            const response = await api.get(route('api.v1.rooms.messages.index', { room: room.id }));
             setMessages(response.data.messages.reverse());
         } catch (error) {
             console.error('Failed to fetch messages:', error);
@@ -63,7 +63,7 @@ export default function ChatWindow({ room, isMobile = false }: ChatWindowProps) 
 
     const sendMessage = async (content: string) => {
         try {
-            await api.post(route('api.rooms.messages.store', { room: room.id }), { content });
+            await api.post(route('api.v1.rooms.messages.store', { room: room.id }), { content });
             // Message will be added via WebSocket broadcast, no need to add here
         } catch (error) {
             console.error('Failed to send message:', error);

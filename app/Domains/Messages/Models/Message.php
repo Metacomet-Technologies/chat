@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domains\Messages\Models;
 
+use App\Domains\Rooms\Models\Room;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,9 +19,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property array<array-key, mixed>|null $metadata
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Domains\Messages\Models\Room $room
- * @property-read User $user
- *
+ * @property-read User|null $receiver
+ * @property-read Room $room
+ * @property-read User|null $sender
  * @method static \Database\Factories\Domains\Messages\Models\MessageFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Message newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Message newQuery()
@@ -33,7 +34,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Message whereUserId($value)
- *
  * @mixin \Eloquent
  */
 class Message extends Model
@@ -43,7 +43,8 @@ class Message extends Model
 
     protected $fillable = [
         'room_id',
-        'user_id',
+        'sender_id',
+        'receiver_id',
         'content',
         'type',
         'metadata',
@@ -55,7 +56,7 @@ class Message extends Model
         'updated_at' => 'datetime',
     ];
 
-    protected $with = ['user'];
+    protected $with = ['sender'];
 
     /**
      * @return BelongsTo<Room, Message>
@@ -68,8 +69,16 @@ class Message extends Model
     /**
      * @return BelongsTo<User, Message>
      */
-    public function user(): BelongsTo
+    public function sender(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'sender_id');
+    }
+
+    /**
+     * @return BelongsTo<User, Message>
+     */
+    public function receiver(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'receiver_id');
     }
 }

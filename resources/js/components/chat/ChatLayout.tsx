@@ -34,8 +34,8 @@ export default function ChatLayout({ initialRooms = [], selectedRoomId }: ChatLa
 
     const fetchRooms = async () => {
         try {
-            const response = await api.get(route('api.rooms.index'));
-            setRooms(response.data);
+            const response = await api.get(route('api.v1.rooms.index'));
+            setRooms(response.data.data || []);
         } catch (error) {
             console.error('Failed to fetch rooms:', error);
         }
@@ -51,7 +51,7 @@ export default function ChatLayout({ initialRooms = [], selectedRoomId }: ChatLa
 
     const handleRoomCreate = async (name: string, type: 'public' | 'private') => {
         try {
-            const response = await api.post(route('api.rooms.store'), {
+            const response = await api.post(route('api.v1.rooms.store'), {
                 name,
                 type,
                 isPrivate: type === 'private',
